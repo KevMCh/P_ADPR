@@ -1,0 +1,13 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.8",
+    "jade": ">= 0.0.1"
+  },
+  "devDependencies": {
+    "jade": "^1.9.2",
+    "node-sass": "^2.1.1"
+  }
+}

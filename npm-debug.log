@@ -1,0 +1,65 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/home/kevin/Escritorio/P_ADPR', [ 'express', 'jade' ] ]
+6 info preinstall application-name@0.0.1
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping express@2.5.8 /home/kevin/Escritorio/P_ADPR
+9 verbose already installed skipping jade@>= 0.0.1 /home/kevin/Escritorio/P_ADPR
+10 silly resolved []
+11 info build /home/kevin/Escritorio/P_ADPR
+12 verbose linkStuff [ false, false, false, '/home/kevin/Escritorio' ]
+13 info linkStuff application-name@0.0.1
+14 verbose linkBins application-name@0.0.1
+15 verbose linkMans application-name@0.0.1
+16 verbose rebuildBundles application-name@0.0.1
+17 verbose rebuildBundles [ '.bin', 'express', 'jade', 'node-sass' ]
+18 verbose rebuild bundle /home/kevin/Escritorio/P_ADPR/node_modules/node-sass
+19 info build /home/kevin/Escritorio/P_ADPR/node_modules/node-sass
+20 info preinstall node-sass@2.1.1
+21 verbose linkStuff [ false,
+21 verbose linkStuff   false,
+21 verbose linkStuff   false,
+21 verbose linkStuff   '/home/kevin/Escritorio/P_ADPR/node_modules' ]
+22 info linkStuff node-sass@2.1.1
+23 verbose linkBins node-sass@2.1.1
+24 verbose link bins [ { 'node-sass': 'bin/node-sass' },
+24 verbose link bins   '/home/kevin/Escritorio/P_ADPR/node_modules/.bin',
+24 verbose link bins   false ]
+25 verbose linkMans node-sass@2.1.1
+26 verbose rebuildBundles node-sass@2.1.1
+27 verbose rebuildBundles [ '.bin',
+27 verbose rebuildBundles   'chalk',
+27 verbose rebuildBundles   'cross-spawn',
+27 verbose rebuildBundles   'gaze',
+27 verbose rebuildBundles   'get-stdin',
+27 verbose rebuildBundles   'meow',
+27 verbose rebuildBundles   'mkdirp',
+27 verbose rebuildBundles   'mocha',
+27 verbose rebuildBundles   'nan',
+27 verbose rebuildBundles   'npmconf',
+27 verbose rebuildBundles   'object-assign',
+27 verbose rebuildBundles   'pangyp',
+27 verbose rebuildBundles   'replace-ext',
+27 verbose rebuildBundles   'request',
+27 verbose rebuildBundles   'sass-graph',
+27 verbose rebuildBundles   'semver',
+27 verbose rebuildBundles   'shelljs' ]
+28 error Error: EACCES, unlink '/home/kevin/Escritorio/P_ADPR/node_modules/.bin/node-sass'
+28 error  { [Error: EACCES, unlink '/home/kevin/Escritorio/P_ADPR/node_modules/.bin/node-sass']
+28 error   errno: 3,
+28 error   code: 'EACCES',
+28 error   path: '/home/kevin/Escritorio/P_ADPR/node_modules/.bin/node-sass' }
+29 error Please try running this command again as root/Administrator.
+30 error System Linux 3.13.0-49-generic
+31 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+32 error cwd /home/kevin/Escritorio/P_ADPR
+33 error node -v v0.10.36
+34 error npm -v 1.4.28
+35 error path /home/kevin/Escritorio/P_ADPR/node_modules/.bin/node-sass
+36 error code EACCES
+37 error errno 3
+38 error stack Error: EACCES, unlink '/home/kevin/Escritorio/P_ADPR/node_modules/.bin/node-sass'
+39 verbose exit [ 3, true ]
