@@ -1,2 +1,31 @@
-h1= title
-p Welcome to #{title}
+doctype html
+
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Lexical Analysis
+    body
+      h1 Lexical Analysis
+      .btn-group(role='group', aria-label='...')
+            a.btn(href='tdop.html')
+              button(type='submit')  Top Down Operator Precedence tutorial
+            a.btn(href='https://github.com/alu0100774665/P_ADPR')
+              button(type='submit')  Repo at GitHub
+            a.btn(href='tests/index.html')
+              button(type='submit')  Tests
+      h2 Input
+      p
+        Fill the input box with javascript code:
+      textarea#INPUT(rows='15', cols='40', placeholder='Introduzca el texto o arrastre el archivo que desea analizar.')
+      pre#OUTPUT.
+      p
+        input#files(type='file')
+      div()
+        button#input2(type='button', onclick="dump('../public/examples/input1.txt');") Example 1
+        button#input(type='button', onclick="dump('../public/examples/input2.txt');") Example 2
+        button#input(type='button', onclick="dump('../public/examples/input3.txt');") Example 3
+        button#hello(type='button', onclick="dump('../public/examples/err.txt');") Example err
+        input#PARSE.mylink(value='Parse', type='button')
+
+      script(src='main.js')
+      script(src='loadFiles.js')
