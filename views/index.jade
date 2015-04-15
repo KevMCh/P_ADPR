@@ -26,8 +26,7 @@ block content
       button#input(type='button', onclick="dump('../public/examples/input3.txt');") Example 3
       button#hello(type='button', onclick="dump('../public/examples/err.txt');") Example err
 
-    input#PARSE.mylink(value='Parse', type='button')
+    input#PARSE.mylink(value='parse', type='button')
     pre#OUTPUT
 
-    script(src='main.js')
-    script(src='loadFiles.js')
+    script(type='text/coffeescript' src='coffeescripts/main.coffee')

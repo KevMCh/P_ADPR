@@ -1,13 +1,14 @@
-n = ()-> 
-  source = original.value
-  try 
+main = ()->
+  console.log 'hola'
+  source = INPUT.value
+  try
     result = JSON.stringify(parse(source), null, 2)
   catch result
     result = """<div class="error">#{result}</div>"""
 
   OUTPUT.innerHTML = result
 
-window.onload = ()-> 
+window.onload = ()->
   PARSE.onclick = main
 
 Object.constructor::error = (message, t) ->
@@ -38,11 +39,11 @@ String::tokens = ->
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
     ONECHAROPERATORS: /([-+*\/=()&|;:,{}[\]])/g
 
-  RESERVED_WORD = 
+  RESERVED_WORD =
     p:    "P"
     "if": "IF"
     then: "THEN"
-  
+
   # Make a token object.
   make = (type, value) ->
     type: type
@@ -55,23 +56,23 @@ String::tokens = ->
     i += str.length # Warning! side effect on i
     str
 
-  
+
   # Begin tokenization. If the source string is empty, return nothing.
   return  unless this
-  
+
   # Loop through this text
   while i < @length
     for key, value of tokens
       value.lastIndex = i
 
     from = i
-    
+
     # Ignore whitespace and comments
-    if m = tokens.WHITES.bexec(this) or 
-           (m = tokens.ONELINECOMMENT.bexec(this)) or 
+    if m = tokens.WHITES.bexec(this) or
+           (m = tokens.ONELINECOMMENT.bexec(this)) or
            (m = tokens.MULTIPLELINECOMMENT.bexec(this))
       getTok()
-    
+
     # name.
     else if m = tokens.ID.bexec(this)
       rw = RESERVED_WORD[m[0]]
@@ -79,7 +80,7 @@ String::tokens = ->
         result.push make(rw, getTok())
       else
         result.push make("ID", getTok())
-    
+
     # number.
     else if m = tokens.NUM.bexec(this)
       n = +getTok()
@@ -87,12 +88,12 @@ String::tokens = ->
         result.push make("NUM", n)
       else
         make("NUM", m[0]).error "Bad number"
-    
+
     # string
     else if m = tokens.STRING.bexec(this)
-      result.push make("STRING", 
+      result.push make("STRING",
                         getTok().replace(/^["']|["']$/g, ""))
-    
+
     # comparison operator
     else if m = tokens.COMPARISONOPERATOR.bexec(this)
       result.push make("COMPARISON", getTok())
@@ -111,8 +112,8 @@ parse = (input) ->
       lookahead = tokens.shift()
       lookahead = null  if typeof lookahead is "undefined"
     else # Error. Throw exception
-      throw "Syntax Error. Expected #{t} found '" + 
-            lookahead.value + "' near '" + 
+      throw "Syntax Error. Expected #{t} found '" +
+            lookahead.value + "' near '" +
             input.substr(lookahead.from) + "'"
     return
 
@@ -153,8 +154,8 @@ parse = (input) ->
         left: left
         right: right
     else # Error!
-      throw "Syntax Error. Expected identifier but found " + 
-        (if lookahead then lookahead.value else "end of input") + 
+      throw "Syntax Error. Expected identifier but found " +
+        (if lookahead then lookahead.value else "end of input") +
         " near '#{input.substr(lookahead.from)}'"
     result
 
@@ -210,14 +211,14 @@ parse = (input) ->
       result = expression()
       match ")"
     else # Throw exception
-      throw "Syntax Error. Expected number or identifier or '(' but found " + 
-        (if lookahead then lookahead.value else "end of input") + 
+      throw "Syntax Error. Expected number or identifier or '(' but found " +
+        (if lookahead then lookahead.value else "end of input") +
         " near '" + input.substr(lookahead.from) + "'"
     result
 
   tree = statements(input)
   if lookahead?
-    throw "Syntax Error parsing statements. " + 
-      "Expected 'end of input' and found '" + 
-      input.substr(lookahead.from) + "'"  
+    throw "Syntax Error parsing statements. " +
+      "Expected 'end of input' and found '" +
+      input.substr(lookahead.from) + "'"
   tree
