@@ -27,6 +27,25 @@ block content
       button#hello(type='button', onclick="dump('../public/examples/err.txt');") Example err
 
     input#PARSE.mylink(value='parse', type='button')
+    script(type='text/javascript').
+          function dump(fileName) {
+          $.get(fileName, function (data) {
+          $("#INPUT").val(data);
+          });
+          };
+          document.getElementById('files').addEventListener('change', CopyMe, false);
+          function CopyMe(evt) {
+          var file = evt.target.files[0];
+          if (file) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+          INPUT.innerHTML = e.target.result;
+          }
+          var c = reader.readAsText(file);
+          }
+          else { alert("Failed to load file"); }
+          }
+            
     pre#OUTPUT
 
     script(type='text/coffeescript' src='coffeescripts/main.coffee')
