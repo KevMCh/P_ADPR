@@ -11,7 +11,7 @@ block content
             button(type='submit')  Top Down Operator Precedence tutorial
           a.btn(href='https://github.com/alu0100774665/P_ADPR')
             button(type='submit')  Repo at GitHub
-          a.btn(href='tests/index.html')
+          a.btn(href='test/index.html')
             button(type='submit')  Tests
     h2 Input
     p
@@ -21,10 +21,10 @@ block content
     p
       input#files(type='file')
     div()
-      button#input2(type='button', onclick="dump('../public/examples/input1.txt');") Example 1
-      button#input(type='button', onclick="dump('../public/examples/input2.txt');") Example 2
-      button#input(type='button', onclick="dump('../public/examples/input3.txt');") Example 3
-      button#hello(type='button', onclick="dump('../public/examples/err.txt');") Example err
+      button#input2(type='button', onclick="dump('/examples/input1.txt');") Example 1
+      button#input(type='button', onclick="dump('/examples/input2.txt');") Example 2
+      button#input(type='button', onclick="dump('/examples/input3.txt');") Example 3
+      button#hello(type='button', onclick="dump('/examples/err.txt');") Example err
 
     input#PARSE.mylink(value='parse', type='button')
     script(type='text/javascript').
@@ -45,7 +45,7 @@ block content
           }
           else { alert("Failed to load file"); }
           }
-            
+
     pre#OUTPUT
 
     script(type='text/coffeescript' src='coffeescripts/main.coffee')
